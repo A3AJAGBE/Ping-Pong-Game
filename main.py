@@ -5,15 +5,21 @@ screen = Screen()
 screen.setup(width=1000, height=600)
 screen.title("A3AJAGBE PING PONG GAME")
 screen.bgcolor("firebrick")
+screen.tracer(0)
 
-paddle = Paddle()
+right_paddle = Paddle((450, 0))
+left_paddle = Paddle((-460, 0))
 
 # Liston for key press
 screen.listen()
-screen.onkey(paddle.right_up, 'i')
-screen.onkey(paddle.right_down, 'm')
-screen.onkey(paddle.left_up, "w")
-screen.onkey(paddle.left_down, "z")
+screen.onkey(right_paddle.up, 'i')
+screen.onkey(right_paddle.down, 'm')
+screen.onkey(left_paddle.up, "w")
+screen.onkey(left_paddle.down, "z")
+
+game_start = True
+while game_start:
+    screen.update()
 
 # Stay running until exited
 screen.exitonclick()
