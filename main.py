@@ -1,5 +1,7 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from paddle import Paddle
+from ball import Ball
+import time
 
 screen = Screen()
 screen.setup(width=1000, height=600)
@@ -10,6 +12,8 @@ screen.tracer(0)
 right_paddle = Paddle((450, 0))
 left_paddle = Paddle((-460, 0))
 
+ball = Ball()
+
 # Liston for key press
 screen.listen()
 screen.onkey(right_paddle.up, 'i')
@@ -19,7 +23,9 @@ screen.onkey(left_paddle.down, "z")
 
 game_start = True
 while game_start:
+    time.sleep(0.1)
     screen.update()
+    ball.move()
 
 # Stay running until exited
 screen.exitonclick()
